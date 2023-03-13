@@ -1,0 +1,58 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Favorite Fruits{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <h1 class="text-center mb-4">Favorite Fruits</h1>
+        <hr>
+
+        {% if fruits|length > 0 %}
+            <div class="row">
+                {% for fruit in fruits %}
+                    <div class="col-12 col-md-6 col-lg-4 mb-4">
+                        <div class="card">
+                            <div class="card-header text-center" title="Name">{{ fruit.name }}</div>
+                            <div class="card-body">
+                                <h5 class="card-title text-center" title="Family">{{ fruit.family }}</h5>
+                                <hr>
+                                <dl>
+                                    <dt>Genus</dt>
+                                    <dd>{{ fruit.genus }}</dd>
+                                    <dt>Order</dt>
+                                    <dd>{{ fruit.order }}</dd>
+                                    <dt>Carbs</dt>
+                                    <dd>{{ fruit.nutrition.carbohydrates }} g</dd>
+                                    <dt>Fat</dt>
+                                    <dd>{{ fruit.nutrition.fat }} g</dd>
+                                    <dt>Protein</dt>
+                                    <dd>{{ fruit.nutrition.protein }} g</dd>
+                                </dl>
+                                <a href="{{ path('fruit_remove_from_favorites', { id: fruit.id }) }}" class="btn btn-primary">Remove from Favorites</a>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        {% else %}
+            <p>No favorite fruits yet.</p>
+        {% endif %}
+
+        {% for message in app.flashes('success') %}
+            <div class="alert alert-success">
+                {{ message }}
+            </div>
+        {% endfor %}
+        
+        {% if totalNutritionFacts %}
+            <div class="total-nutrition-facts bg-light p-4 mt-4">
+                <h5>Total Nutrition Facts</h5>
+                <hr>
+                <p>Total carbohydrates: {{ totalNutritionFacts.carbohydrates }} g</p>
+                <p>Total proteins: {{ totalNutritionFacts.proteins }} g</p>
+                <p>Total fat: {{ totalNutritionFacts.fat }} g</p>
+                <p>Total calories: {{ totalNutritionFacts.calories }} kcal</p>
+            </div>
+        {% endif %}
+    </div>
+{% endblock %}
