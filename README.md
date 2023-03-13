@@ -1,7 +1,6 @@
 # test-fruit
 Test fruit task using symfony
 
-Fruit Scraper Project
 This project is a PHP-based web application (symfony application) that scrapes fruit data from https://fruityvice.com/#1, saves them into a database, send an email if new values are going to be added and allows users to filter and add fruits to/remove from their favorites (up to 10 items)
 
 Installation:
