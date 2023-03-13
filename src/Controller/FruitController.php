@@ -106,6 +106,7 @@ class FruitController extends AbstractController
             'proteins' => 0,
             'fat' => 0,
             'calories' => 0,
+            'sugar' => 0
         ];
 
         foreach ($fruits as $fruit) {
@@ -113,6 +114,7 @@ class FruitController extends AbstractController
             $totalNutritionFacts['proteins'] += $fruit->getNutrition()->getProtein();
             $totalNutritionFacts['fat'] += $fruit->getNutrition()->getFat();
             $totalNutritionFacts['calories'] += $fruit->getNutrition()->getCalories();
+            $totalNutritionFacts['sugar'] += $fruit->getNutrition()->getSugar();
         }
 
         // dd($fruits);

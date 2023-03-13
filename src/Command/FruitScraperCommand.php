@@ -74,8 +74,8 @@ class FruitScraperCommand extends Command
                 $entityManager->flush();
 
                 $this->mailer->send((new Email())
-                    ->from('a.azabar93@gmail.com')
-                    ->to('a.azabar93@gmail.com')
+                    ->from('vadimbabkovtc21@gmail.com')
+                    ->to('vadimbabkovtc21+test1@gmail.com')
                     ->subject('New Fruit Added')
                     ->text('A new fruit has been added: ' . $fruit['name'])
                 );
