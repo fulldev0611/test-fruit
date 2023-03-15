@@ -33,5 +33,8 @@ Favorites
 Nutrition Facts
 - The nutrition facts of all favorite fruits are displayed at the bottom of the favorites page.
 
+Eamil send Test
+- To test email sender, please update "MAILER_DSN" on  .env file
+
 Running Tests
 - To run unit tests, use the following command:
